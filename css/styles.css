@@ -1,0 +1,16 @@
+
+.edit-button{
+  margin: 10px;
+}
+.edit-button:hover{
+  box-shadow: #ec971f 3px 3px 2px;
+}
+.delete-button:hover{
+  box-shadow: #c9302c 3px 3px 2px;
+}
+input[type="checkbox"]{
+  margin :10px;
+}
+td{
+    width: 20%;
+}
