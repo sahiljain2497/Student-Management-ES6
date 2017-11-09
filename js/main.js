@@ -73,9 +73,10 @@ function deleteRow(r) {
     }
 }
 
+const cross = '<span class="glyphicon glyphicon-remove"></span>';
+const edit = '<span class="glyphicon glyphicon-pencil"></span>';
+
 $(document).ready(() => {
-  const cross = '<span class="glyphicon glyphicon-remove"></span>';
-  const edit = '<span class="glyphicon glyphicon-pencil"></span>';
 
   function display_data(){
       $(".put").html("");
@@ -154,7 +155,7 @@ $(document).ready(() => {
     <div class="form-group">
     <label for="Stream">Stream :</label>
     <input type="text" class="form-control" id="stream" placeholder="Enter Stream"></div>
-    <button type="button" class="btn btn-success submit" data-dismiss='modal'>Submit</button>
+    <button type="button" class="btn btn-success submit">Submit</button>
     </div>
     </form>
     </div>`
@@ -164,9 +165,15 @@ $(document).ready(() => {
       roll = $('#roll').val();
       str = $('#stream').val();
       pass = $('#year').val();
+      if(roll == ''){
+          alert("Please Enter the Rollno");
+      }
+      else{
       datan= new student(roll,name,pass,str);
       data.push(datan);
       display_data();
+      $('.modal').modal('toggle');
+    }
     })
   })
 
