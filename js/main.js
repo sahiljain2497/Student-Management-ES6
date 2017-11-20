@@ -80,6 +80,12 @@ $(document).ready(() => {
 
   function display_data(){
       $(".put").html("");
+      $(".put").append(`<tr>
+                        <th>Roll No</th>
+                        <th>Name</th>
+                        <th>Passout Year</th>
+                        <th>Stream</th>
+                        </tr>`);
       for(let i=0;i<data.length;i++)
       {
           row = `<tr>
