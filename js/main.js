@@ -51,11 +51,11 @@ function make_modal(data){
     <input type="text" class="form-control" id="year" placeholder="Enter Year" value=${data.pass}></div>
     <div class="form-group">
     <label for="Roll">Roll No :</label>
-    <input type="text" class="form-control" id="roll" placeholder="Enter Rollno" value=${data.roll_no}></div>
+    <input type="text" class="form-control" id="roll" placeholder="Enter Rollno" value=${data.roll_no} disabled></div>
     <div class="form-group">
     <label for="Stream">Stream :</label>
     <input type="text" class="form-control" id="stream" placeholder="Enter Stream" value=${data.stream}></div>
-    <button type="button" class="btn btn-success submit" data-dismiss="modal">Submit</button>
+    <button type="button" class="btn btn-success submit">Submit</button>
     </div>
     </form>
     </div>`
@@ -112,6 +112,7 @@ $(document).ready(() => {
       //
 
       $('.submit').click(function(){
+          if(/^\d+$/.test($('#roll').val()) == true && $("#name").val()!="" && $("#roll").val()!="" && $("#stream").val()!="" && $("#year").val()!="" && /^\d+$/.test($('#year').val()) == true ){
           var flag=0;
           nam = $("#name").val();
           roll = $('#roll').val();
@@ -131,10 +132,21 @@ $(document).ready(() => {
               data.push(updated);
           }
           display_data();
+          $('.modal').modal('toggle');
+          }
+          else{
+            if($("#name").val()=="" || $("#roll").val()=="" || $("#stream").val()=="" || $("#year").val()=="")
+                alert("ALl Fields Required");
+            else if(/^\d+$/.test($('#year').val()) == false)
+                alert("Year should be a real number");
+            else if(/^\d+$/.test($('#roll').val()) == false)
+                alert("Roll should be a real number");
+          }
       })
   })
 
   $('.addStudent').click(function(){
+      roll=parseInt(data[data.length-1].roll_no) + 1
     $('.modal-content').html('')
     $('.modal-content').append(`
     <div class="modal-header">
@@ -151,7 +163,7 @@ $(document).ready(() => {
     <input type="text" class="form-control" id="year" placeholder="Enter Year"></div>
     <div class="form-group">
     <label for="Roll">Roll No :</label>
-    <input type="text" class="form-control" id="roll" placeholder="Enter Rollno"></div>
+    <input type="text" class="form-control" id="roll" placeholder="Enter Rollno" value=${roll}></div>
     <div class="form-group">
     <label for="Stream">Stream :</label>
     <input type="text" class="form-control" id="stream" placeholder="Enter Stream"></div>
@@ -160,7 +172,9 @@ $(document).ready(() => {
     </form>
     </div>`
     );
+    
     $('.submit').click(function(){
+      if(/^\d+$/.test($('#roll').val()) == true && $("#name").val()!="" && $("#roll").val()!="" && $("#stream").val()!="" && $("#year").val()!="" && /^\d+$/.test($('#year').val()) == true ){
       name = $("#name").val();
       roll = $('#roll').val();
       str = $('#stream').val();
@@ -174,6 +188,16 @@ $(document).ready(() => {
       display_data();
       $('.modal').modal('toggle');
     }
+      }
+        else{
+            if($("#name").val()=="" || $("#roll").val()=="" || $("#stream").val()=="" || $("#year").val()=="")
+                alert("ALl Fields Required");
+            else if(/^\d+$/.test($('#year').val()) == false)
+                alert("Year should be a real number");
+            else if(/^\d+$/.test($('#roll').val()) == false)
+                alert("Roll should be a real number");
+            
+        }
     })
   })
 
