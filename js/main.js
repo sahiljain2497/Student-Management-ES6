@@ -227,7 +227,7 @@ var heroShinker = function() {
         if (scrollOffset < heroHeight) {
             $(hero).css('height', (heroHeight - scrollOffset));
         }
-        if (scrollOffset > (heroHeight - 415)) {
+        if (scrollOffset > (heroHeight - 315)) {
             hero.addClass('fixme');
         } else {
             hero.removeClass('fixme');
