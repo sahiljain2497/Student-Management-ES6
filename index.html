@@ -10,13 +10,23 @@
 </head>
 
 <body onload="getStudentDetails()">
-    <div class="container">
-            <h1>Welcome to student details management portal</h1>
-            <div>
+    <div class="hero-nav">
+    <div class="hero-nav__inner">
+        <h1>Welcome To Student Portal</h1>
+        <div class="hero-nav__button">
+            <a href="#" class="btn"></a>
+        </div>
+    </div>
+</div>
+
+    <br/>
+    <br/>
+    <br/>
+    <div class="page-content">
                 <button class="addStudent btn btn-primary" data-target="#myModal" data-toggle="modal">Add New Student</button>
                 <button class="delStudent btn btn-danger" style="float:right;">Delete Selected</button>
                 <br />
-                </br/>
+                <br/>
                 <div class="student_list table-responsive">
                         <table class="table table-hover put">
                             <tr>
@@ -39,8 +49,7 @@
     </div>
 
           </div>
-  </div>
-            </div>
+    </div>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
