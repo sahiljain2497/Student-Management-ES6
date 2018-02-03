@@ -118,9 +118,9 @@ $(document).ready(() => {
       }
       //
 
-      $('.submit').click(function(){
+      $('.submit').click(() => {
           if(/^\d+$/.test($('#roll').val()) == true && $("#name").val()!="" && $("#roll").val()!="" && $("#stream").val()!="" && $("#year").val()!="" && /^\d+$/.test($('#year').val()) == true ){
-          var flag=0;
+          let flag=0;
           nam = $("#name").val();
           roll = $('#roll').val();
           str = $('#stream').val();
@@ -152,7 +152,7 @@ $(document).ready(() => {
       })
   })
 
-  $('.addStudent').click(function(){
+  $('.addStudent').click(() => {
       roll=parseInt(data[data.length-1].roll_no) + 1
     $('.modal-content').html('')
     $('.modal-content').append(`
@@ -180,7 +180,7 @@ $(document).ready(() => {
     </div>`
     );
 
-    $('.submit').click(function(){
+    $('.submit').click(() => {
       if(/^\d+$/.test($('#roll').val()) == true && $("#name").val()!="" && $("#roll").val()!="" && $("#stream").val()!="" && $("#year").val()!="" && /^\d+$/.test($('#year').val()) == true ){
       name = $("#name").val();
       roll = $('#roll').val();
@@ -208,9 +208,9 @@ $(document).ready(() => {
     })
   })
 
-  $('.delStudent').click(function(){
-        var checked=[];
-        var todelete=[];
+  $('.delStudent').click(() => {
+        let checked=[];
+        const todelete=[];
         checked=document.getElementsByClassName('checkclass');
         console.log(checked);
         for(let i=0;i<checked.length;i++){
@@ -225,12 +225,12 @@ $(document).ready(() => {
   });
 
 });
-var heroShinker = function() {
-    var hero = $('.hero-nav'),
-        heroHeight = $('.hero-nav').outerHeight(true);
-        $(hero).parent().css('padding-top', heroHeight);
-    $(window).scroll(function() {
-        var scrollOffset = $(window).scrollTop();
+const heroShinker = () => {
+    const hero = $('.hero-nav');
+    const heroHeight = $('.hero-nav').outerHeight(true);
+    $(hero).parent().css('padding-top', heroHeight);
+    $(window).scroll(() => {
+        const scrollOffset = $(window).scrollTop();
         if (scrollOffset < heroHeight) {
             $(hero).css('height', (heroHeight - scrollOffset));
         }
@@ -240,5 +240,5 @@ var heroShinker = function() {
             hero.removeClass('fixme');
         };
     });
-}
+};
 heroShinker();
