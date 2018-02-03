@@ -223,22 +223,21 @@ $(document).ready(() => {
           deleteRow(todelete[i]);
         }
   });
-
+  const heroShinker = () => {
+      const hero = $('.hero-nav');
+      const heroHeight = $('.hero-nav').outerHeight(true);
+      $(hero).parent().css('padding-top', heroHeight);
+      $(window).scroll(() => {
+          const scrollOffset = $(window).scrollTop();
+          if (scrollOffset < heroHeight) {
+              $(hero).css('height', (heroHeight - scrollOffset));
+          }
+          if (scrollOffset > (heroHeight - 315)) {
+              hero.addClass('fixme');
+          } else {
+              hero.removeClass('fixme');
+          };
+      });
+  };
+  heroShinker();
 });
-const heroShinker = () => {
-    const hero = $('.hero-nav');
-    const heroHeight = $('.hero-nav').outerHeight(true);
-    $(hero).parent().css('padding-top', heroHeight);
-    $(window).scroll(() => {
-        const scrollOffset = $(window).scrollTop();
-        if (scrollOffset < heroHeight) {
-            $(hero).css('height', (heroHeight - scrollOffset));
-        }
-        if (scrollOffset > (heroHeight - 315)) {
-            hero.addClass('fixme');
-        } else {
-            hero.removeClass('fixme');
-        };
-    });
-};
-heroShinker();
