@@ -32,7 +32,6 @@ h1{
 .edit-button{
   margin: 10px;
 }
-
 .edit-button:hover{
   box-shadow: #ec971f 3px 3px 2px;
 }
