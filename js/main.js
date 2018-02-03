@@ -85,6 +85,7 @@ $(document).ready(() => {
                         <th>Name</th>
                         <th>Passout Year</th>
                         <th>Stream</th>
+                        <th>Operation</th>
                         </tr>`);
       for(let i=0;i<data.length;i++)
       {
@@ -178,7 +179,7 @@ $(document).ready(() => {
     </form>
     </div>`
     );
-    
+
     $('.submit').click(function(){
       if(/^\d+$/.test($('#roll').val()) == true && $("#name").val()!="" && $("#roll").val()!="" && $("#stream").val()!="" && $("#year").val()!="" && /^\d+$/.test($('#year').val()) == true ){
       name = $("#name").val();
@@ -202,7 +203,7 @@ $(document).ready(() => {
                 alert("Year should be a real number");
             else if(/^\d+$/.test($('#roll').val()) == false)
                 alert("Roll should be a real number");
-            
+
         }
     })
   })
