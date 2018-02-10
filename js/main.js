@@ -15,7 +15,7 @@ function student(roll,name,pass,stream)
         this.pass = pass;
         this.stream = stream;
     }
-
+//FILLS DATA IN THE TABLE
 function make_data()
     {
         const out = [];
